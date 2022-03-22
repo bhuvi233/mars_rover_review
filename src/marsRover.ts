@@ -2,9 +2,8 @@ import { clear, print, askQuestion} from './console';
 import readlineSync = require('readline-sync');
 import { Plateau } from './plateau';
 
-global.MaxUpperRight = {X: 5,Y: 5};
-
 export class MarsRover {
+    MaxUpperRight = {X: 5,Y: 5};
     continueRover: boolean | string = true;
 
     constructor () {
@@ -21,8 +20,8 @@ export class MarsRover {
     updatePlateauSize =  (coordinates: string): void => {
         let [x , y] : number[] = coordinates.split(" ").map(ele => parseInt(ele));
         
-        if (x > MaxUpperRight.X || x <= 0 || x === undefined) x = MaxUpperRight.X;
-        if (y > MaxUpperRight.Y || y <= 0 || y === undefined) y = MaxUpperRight.Y;
+        if (x > this.MaxUpperRight.X || x <= 0 || x === undefined) x = this.MaxUpperRight.X;
+        if (y > this.MaxUpperRight.Y || y <= 0 || y === undefined) y = this.MaxUpperRight.Y;
 
         const myPlateau = new Plateau(x, y);
 
